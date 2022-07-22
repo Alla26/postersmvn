@@ -53,16 +53,17 @@ public class PosterRepository {
         posters = tmp;
     }
 
-    //??????????????????// не могу написать метод для очищения массива, не понимаю, что надо положить в ячейкм
-    public Film[] removeAll() {
-        Film[] all = getPosters();
-        Film[] list = new Film[all.length];
-        for (int i = 0; i < list.length; i++) {
-            list[i] = null;
-        }
-        return list;
 
+    public void removeAll() {
+        posters = new Film[0];
+        /*Film[] all = getPosters();
+        Film[] list = new Film[0];
+        for (int i = 0; i < list.length; i++) {
+            list[i] = null;*/
     }
+    // return list;
+
+
 
 
 
