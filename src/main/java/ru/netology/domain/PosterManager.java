@@ -1,20 +1,43 @@
 package ru.netology.domain;
 
+import ru.netology.repository.PosterRepository;
+
 public class PosterManager {
-    private Film[] posters = new Film[0];
+
+    private PosterRepository repo;
+
+    public PosterManager(PosterRepository repo) {
+        this.repo = repo;
+    }
+
+    public void add(Film poster) {
+        repo.save(poster);
+    }
 
     public Film[] getPosters() {
-        return posters;
+        Film[] all = repo.getPosters();
+        Film[] newlyCreated = new Film[all.length];
+        for (int i = 0; i < newlyCreated.length; i++) {
+            newlyCreated[i] = all[i];
+        }
+        return newlyCreated;
+    }
+//Не могу написать метод для обращения менеджера к репозиторию в случаях ниже, соответственно, протестировать менеджера тоже не смогу
+
+
+   /* public void findAllFilm() {             //возвращает все ф
+        repo.findAll();
+       return;
     }
 
-    public void save(Film poster) {                  //сохраняет новый ф
-        Film[] tmp = new Film[posters.length + 1];
-        for (int i = 0; i < posters.length; i++) {
-            tmp[i] = posters[i];
-        }
-        tmp[tmp.length - 1] = poster;
-        posters = tmp;
-    }
+
+
+
+
+   /* private Film[] posters = new Film[0];
+
+
+
 
     public Film[] findAll() {                          //возвращает все ф
         Film[] all = getPosters();
@@ -53,6 +76,6 @@ public class PosterManager {
             abbreviatedRandom[i] = reversed[i];
         }
         return abbreviatedRandom;
-    }
+    }*/
 
 }

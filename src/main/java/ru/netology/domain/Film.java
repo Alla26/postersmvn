@@ -6,7 +6,6 @@ public class Film {
 
     private int id;
 
-
     public Film(String name, int yearRelease, int id) {
         this.name = name;
         this.yearRelease = yearRelease;
