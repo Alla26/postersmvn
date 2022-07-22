@@ -69,6 +69,16 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldReturnRandomPostersLessLimit() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф
+
+
+        Film[] expected = {poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5, poster4, poster3, poster2, poster1};
+        Film[] actual = repo.findLastRandom(13);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 
     @Test
     public void shouldReturnTenPosters() {          //проверяет, возвращает ли в обратном порядке 10 добавленных ф
