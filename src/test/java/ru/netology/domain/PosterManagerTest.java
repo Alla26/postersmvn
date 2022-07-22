@@ -60,14 +60,15 @@ public class PosterManagerTest {
     }
 
     @Test
+    public void shouldReturnRandomPosters() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф
 
-    public void shouldReversedAllPosters() {             //проверяет, возвращает ли все ф в обр порядке
 
-        Film[] expected = {poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5, poster4, poster3, poster2, poster1};
-        Film[] actual = repo.findLast();
+        Film[] expected = {poster12, poster11};
+        Film[] actual = repo.findLastRandom(2);
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
 
     @Test
     public void shouldReturnTenPosters() {          //проверяет, возвращает ли в обратном порядке 10 добавленных ф
@@ -78,15 +79,17 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void shouldReturnRandomPosters() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф
+
+
+  /*  @Test
+    public void shouldReturnRandomnPosters() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф
 
 
         Film[] expected = {poster12, poster11};
-        Film[] actual = repo.findLastRandom(2);
+        Film[] actual = repo.findLastt(2);
 
         Assertions.assertArrayEquals(expected, actual);
-    }
+    }*/
 
 
     //Не могу понять, что должна выводить java в тех случаях, когда длина массива меньше, чем указанное количество выводимых фильмов => не могу прописать expected (рука-лицо)
@@ -109,6 +112,16 @@ public class PosterManagerTest {
 
         Film[] expected = {poster8, poster7, poster6, poster5, poster4, poster3, poster2, poster1, null, null};
         Film[] actual = repo.findLastTen();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }*/
+
+    /*  @Test
+
+    public void shouldReversedAllPosters() {             //проверяет, возвращает ли все ф в обр порядке
+
+        Film[] expected = {poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5, poster4, poster3, poster2, poster1};
+        Film[] actual = repo.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }*/
