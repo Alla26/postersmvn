@@ -3,8 +3,16 @@ package ru.netology.domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import ru.netology.repository.PosterRepository;
+
+import static org.mockito.Mockito.*;
 
 public class PosterManagerTest {
+
+    //PosterRepository repo = new PosterRepository();
+    PosterRepository repo = Mockito.mock(PosterRepository.class);
+    PosterManager manager = new PosterManager(repo);
 
     Film poster1 = new Film("Матрица", 1999, 1);
     Film poster2 = new Film("Пианист", 2002, 2);
@@ -19,41 +27,44 @@ public class PosterManagerTest {
     Film poster11 = new Film("Побег из Шоушенка", 1994, 11);
     Film poster12 = new Film("Нежность", 2011, 12);
 
-    PosterManager repo = new PosterManager();
 
-    @BeforeEach
+
+  /*  @BeforeEach
     public void setup() {
-        repo.save(poster1);
-        repo.save(poster2);
-        repo.save(poster3);
-        repo.save(poster4);
-        repo.save(poster5);
-        repo.save(poster6);
-        repo.save(poster7);
-        repo.save(poster8);
-        repo.save(poster9);
-        repo.save(poster10);
-        repo.save(poster11);
-        repo.save(poster12);
+        manager.add(poster1);
+        manager.add(poster2);
+        manager.add(poster3);
+        manager.add(poster4);
+        manager.add(poster5);
+        manager.add(poster6);
+        manager.add(poster7);
+        manager.add(poster8);
+        manager.add(poster9);
+        manager.add(poster10);
+        manager.add(poster11);
+        manager.add(poster12);
 
-    }
+    }*/
 
 
     @Test
 
     public void shouldReturnPosters() {               //проверяет, сохраняются ли новые ф
 
+        Film[] posters = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
+        doReturn(posters).when(repo).getPosters();
+
         Film[] expected = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
-        Film[] actual = repo.getPosters();
+        Film[] actual = manager.getPosters();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
+  /*  @Test
     public void shouldReturnAllPosters() {    //проверяет, выводит ли все ф
 
         Film[] expected = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
-        Film[] actual = repo.findAll();
+        Film[] actual = manager.findAllFilm();
 
         Assertions.assertArrayEquals(expected, actual);
 
@@ -64,7 +75,7 @@ public class PosterManagerTest {
     public void shouldReversedAllPosters() {             //проверяет, возвращает ли все ф в обр порядке
 
         Film[] expected = {poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5, poster4, poster3, poster2, poster1};
-        Film[] actual = repo.findLast();
+        Film[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
