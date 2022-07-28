@@ -7,6 +7,7 @@ public class PosterRepository {
     private Film[] posters = new Film[0];
 
     public Film[] getPosters() {
+
         return posters;
     }
 

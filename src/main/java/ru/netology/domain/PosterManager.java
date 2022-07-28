@@ -10,6 +10,8 @@ public class PosterManager {
         this.repo = repo;
     }
 
+
+
     public void add(Film poster) {
         repo.save(poster);
     }
