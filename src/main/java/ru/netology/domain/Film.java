@@ -22,10 +22,12 @@ public class Film {
     }
 
     public int getYearRelease() {
+
         return yearRelease;
     }
 
     public void setYearRelease(int yearRelease) {
+
         this.yearRelease = yearRelease;
     }
 
@@ -34,6 +36,7 @@ public class Film {
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 

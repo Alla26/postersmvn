@@ -2,19 +2,19 @@ package ru.netology.domain;
 
 public class PosterManager {
 
-    public int limit;
+    private int limit;        //переменная для количества выводимых фильмов. изменила на private
 
-    private Film[] posters = new Film[0];
+    private Film[] posters = new Film[0];   //хранит репо
 
-    public PosterManager(int limit) {
+    public PosterManager(int limit) {          //конструктор принимает лимит параметром
         this.limit = limit;
     }
 
-    public PosterManager() {
-
+    public PosterManager() {          //конструктор для лимита 10
+        this.limit = 10;
     }
 
-    public Film[] getPosters() {
+    public Film[] getPosters() {            //отдает массив
         return posters;
     }
 
@@ -24,7 +24,7 @@ public class PosterManager {
             tmp[i] = posters[i];
         }
         tmp[tmp.length - 1] = poster;
-        posters = tmp;
+        posters = tmp;                  //запоминает новый массив в своем поле
     }
 
     public Film[] findAll() {                          //возвращает все ф
@@ -38,7 +38,7 @@ public class PosterManager {
     }
 
 
-    public Film[] findLastRandom(int limit) {                        //возвращает последние Х добавленных ф
+    public Film[] findLast(/*int limit*/) {                        //сделала два разных метода на лимит 10 и рандомный лимит, потому что не разобралась до конца в подсказке по поводу двух конструкторов менеджера. Сразу стало все понятно - метод один, а с помощью разных конструкторов меняем лимит.
         int resultLength = posters.length;
         if (resultLength >= limit) {
             resultLength = limit;
@@ -54,7 +54,7 @@ public class PosterManager {
 
     }
 
-    public Film[] findLastTen() {                        //возвращает последние 10 добавленных ф
+  /*  public Film[] findLastTen() {                        //возвращает последние 10 добавленных ф
         int limit = 10;
         Film[] all = getPosters();
         Film[] result = new Film[limit];
@@ -63,7 +63,7 @@ public class PosterManager {
         }
         return result;
 
-    }
+    }*/
 
     /*  public Film[] findLast() {                        //возвращает все в обр порядке
         Film[] all = getPosters();

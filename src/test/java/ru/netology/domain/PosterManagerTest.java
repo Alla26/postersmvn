@@ -19,62 +19,164 @@ public class PosterManagerTest {
     Film poster11 = new Film("Побег из Шоушенка", 1994, 11);
     Film poster12 = new Film("Нежность", 2011, 12);
 
-    PosterManager repo = new PosterManager();
 
-    @BeforeEach
+
+  /*  @BeforeEach
     public void setup() {
-        repo.save(poster1);
-        repo.save(poster2);
-        repo.save(poster3);
-        repo.save(poster4);
-        repo.save(poster5);
-        repo.save(poster6);
-        repo.save(poster7);
-        repo.save(poster8);
-        repo.save(poster9);
-        repo.save(poster10);
-        repo.save(poster11);
-        repo.save(poster12);
+        manager.save(poster1);
+        manager.save(poster2);
+        manager.save(poster3);
+        manager.save(poster4);
+        manager.save(poster5);
+        manager.save(poster6);
+        /manager.save(poster7);
+        /manager.save(poster8);
+        manager.save(poster9);
+        manager.save(poster10);
+        manager.save(poster11);
+        manager.save(poster12);
 
-    }
+    }*/
 
 
     @Test
 
     public void shouldReturnPosters() {               //проверяет, сохраняются ли новые ф
+        PosterManager /*repo*/manager = new PosterManager();
+
+        /*repo*/
+        manager.save(poster1);
+        /*repo*/
+        manager.save(poster2);
+        /*repo*/
+        manager.save(poster3);
+        /*repo*/
+        manager.save(poster4);
+        /*repo*/
+        manager.save(poster5);
+        /*repo*/
+        manager.save(poster6);
+        /*repo*/
+        manager.save(poster7);
+        /*repo*/
+        manager.save(poster8);
+        /*repo*/
+        manager.save(poster9);
+        /*repo*/
+        manager.save(poster10);
+        /*repo*/
+        manager.save(poster11);
+        /*repo*/
+        manager.save(poster12);
 
         Film[] expected = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
-        Film[] actual = repo.getPosters();
+        Film[] actual = /*repo*/manager.getPosters();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldReturnAllPosters() {    //проверяет, выводит ли все ф
+        PosterManager /*repo*/manager = new PosterManager();
+
+        /*repo*/
+        manager.save(poster1);
+        /*repo*/
+        manager.save(poster2);
+        /*repo*/
+        manager.save(poster3);
+        /*repo*/
+        manager.save(poster4);
+        /*repo*/
+        manager.save(poster5);
+        /*repo*/
+        manager.save(poster6);
+        /*repo*/
+        manager.save(poster7);
+        /*repo*/
+        manager.save(poster8);
+        /*repo*/
+        manager.save(poster9);
+        /*repo*/
+        manager.save(poster10);
+        /*repo*/
+        manager.save(poster11);
+        /*repo*/
+        manager.save(poster12);
 
         Film[] expected = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
-        Film[] actual = repo.findAll();
+        Film[] actual = /*repo*/manager.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
 
     }
 
     @Test
-    public void shouldReturnRandomPosters() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф
+    public void shouldReturnRandomPosters() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф в пределах количетсва ячеек
+        PosterManager /*repo*/manager = new PosterManager(2);
 
+        /*repo*/
+        manager.save(poster1);
+        /*repo*/
+        manager.save(poster2);
+        /*repo*/
+        manager.save(poster3);
+        /*repo*/
+        manager.save(poster4);
+        /*repo*/
+        manager.save(poster5);
+        /*repo*/
+        manager.save(poster6);
+        /*repo*/
+        manager.save(poster7);
+        /*repo*/
+        manager.save(poster8);
+        /*repo*/
+        manager.save(poster9);
+        /*repo*/
+        manager.save(poster10);
+        /*repo*/
+        manager.save(poster11);
+        /*repo*/
+        manager.save(poster12);
 
         Film[] expected = {poster12, poster11};
-        Film[] actual = repo.findLastRandom(2);
+        Film[] actual = /*repo*/manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldReturnRandomPostersLessLimit() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф
+    public void shouldReturnRandomPostersLessLimit() {     //проверяет, возвращает ли в обратном порядке Х добавленных ф свыше количества ячеек
+        PosterManager /*repo*/manager = new PosterManager(13);
 
+        /*repo*/
+        manager.save(poster1);
+        /*repo*/
+        manager.save(poster2);
+        /*repo*/
+        manager.save(poster3);
+        /*repo*/
+        manager.save(poster4);
+        /*repo*/
+        manager.save(poster5);
+        /*repo*/
+        manager.save(poster6);
+        /*repo*/
+        manager.save(poster7);
+        /*repo*/
+        manager.save(poster8);
+        /*repo*/
+        manager.save(poster9);
+        /*repo*/
+        manager.save(poster10);
+        /*repo*/
+        manager.save(poster11);
+        /*repo*/
+        manager.save(poster12);
 
         Film[] expected = {poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5, poster4, poster3, poster2, poster1};
-        Film[] actual = repo.findLastRandom(13);
+        Film[] actual = /*repo*/manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -82,9 +184,35 @@ public class PosterManagerTest {
 
     @Test
     public void shouldReturnTenPosters() {          //проверяет, возвращает ли в обратном порядке 10 добавленных ф
+        PosterManager manager = new PosterManager();
+
+        /*repo*/
+        manager.save(poster1);
+        /*repo*/
+        manager.save(poster2);
+        /*repo*/
+        manager.save(poster3);
+        /*repo*/
+        manager.save(poster4);
+        /*repo*/
+        manager.save(poster5);
+        /*repo*/
+        manager.save(poster6);
+        /*repo*/
+        manager.save(poster7);
+        /*repo*/
+        manager.save(poster8);
+        /*repo*/
+        manager.save(poster9);
+        /*repo*/
+        manager.save(poster10);
+        /*repo*/
+        manager.save(poster11);
+        /*repo*/
+        manager.save(poster12);
 
         Film[] expected = {poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5, poster4, poster3};
-        Film[] actual = repo.findLastTen();
+        Film[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
