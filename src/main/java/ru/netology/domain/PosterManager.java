@@ -10,10 +10,10 @@ public class PosterManager {
         this.repo = repo;
     }
 
-
-
-    public void add(Film poster) {
+    public Film[] add(Film poster) {
         repo.save(poster);
+        return new Film[0];
+        // return new Film[getPosters().length];
     }
 
     public Film[] getPosters() {
@@ -24,7 +24,6 @@ public class PosterManager {
         }
         return newlyCreated;
     }
-//Не могу написать метод для обращения менеджера к репозиторию в случаях ниже, соответственно, протестировать менеджера тоже не смогу
 
 
    /* public void findAllFilm() {             //возвращает все ф

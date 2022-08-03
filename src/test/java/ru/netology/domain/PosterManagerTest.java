@@ -11,7 +11,9 @@ import static org.mockito.Mockito.*;
 public class PosterManagerTest {
 
     //PosterRepository repo = new PosterRepository();
+
     PosterRepository repo = Mockito.mock(PosterRepository.class);
+
     PosterManager manager = new PosterManager(repo);
 
     Film poster1 = new Film("Матрица", 1999, 1);
@@ -51,6 +53,7 @@ public class PosterManagerTest {
 
     public void shouldReturnPosters() {               //проверяет, сохраняются ли новые ф
 
+
         Film[] posters = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
         doReturn(posters).when(repo).getPosters();
 
@@ -60,17 +63,26 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-  /*  @Test
-    public void shouldReturnAllPosters() {    //проверяет, выводит ли все ф
 
-        Film[] expected = {poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12};
-        Film[] actual = manager.findAllFilm();
+
+   /* @Test
+    public void shouldReturnAllPosters() {
+
+      //  Film[] posters = {poster1};
+       // doReturn(posters).when(repo).save(poster1);
+
+        PosterRepository repo = new PosterRepository();
+        manager.add(poster1);
+
+
+        Film[] expected = {poster1};
+        Film[] actual = manager.add(poster1);
 
         Assertions.assertArrayEquals(expected, actual);
 
-    }
+    }*/
 
-    @Test
+  /*  @Test
 
     public void shouldReversedAllPosters() {             //проверяет, возвращает ли все ф в обр порядке
 
