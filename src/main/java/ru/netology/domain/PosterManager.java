@@ -10,9 +10,9 @@ public class PosterManager {
         this.repo = repo;
     }
 
-    public Film[] add(Film poster) {
+    public void add(Film poster) {
         repo.save(poster);
-        return new Film[0];
+       // return new Film[0];
         // return new Film[getPosters().length];
     }
 
